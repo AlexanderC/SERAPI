@@ -2,6 +2,8 @@ Uh oh! Seems like joe doesn't know what phpstorm is.
 Try running `joe ls` to see list of available gitignore files.
 #### joe made this: https://goel.io/joe
 
+.idea
+
 #####=== Symfony ===#####
 
 # Cache and logs (Symfony2)
@@ -48,7 +50,8 @@ Try running `joe ls` to see list of available gitignore files.
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
