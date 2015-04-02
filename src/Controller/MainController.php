@@ -18,6 +18,10 @@ use ExchangeRates\ExchangeRate;
  */
 class MainController extends AbstractController
 {
+    /**
+     * @param string $provider
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function getProviderRatesAction($provider = 'curs_md')
     {
         $client = $this->getClient($provider);
