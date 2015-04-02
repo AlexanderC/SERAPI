@@ -1,0 +1,25 @@
+{
+  "name": "AlexanderC/SERAPI",
+  "description": "Simple Exchange Rates API",
+  "minimum-stability": "stable",
+  "license": "Apache v2",
+  "authors": [
+    {
+      "name": "AlexanderC",
+      "email": "self@alexanderc.me"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SERAPI\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.5.2",
+    "alexanderc/exchange-rates": "1.1.0",
+    "silex/silex": "2.0.*@dev"
+  },
+  "suggest": {
+
+  }
+}
