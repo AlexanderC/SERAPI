@@ -2,6 +2,8 @@
 <html ng-app="client">
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>SERAPI Client</title>
 
     <link rel="stylesheet" href="css/main.css">
@@ -15,48 +17,50 @@
 </head>
 <body>
     <div class="container" ng-controller="IndexCtrl">
-        <select ng-options="provider for provider in providers track by provider" ng-model="provider">
-            <option value=''>Select a provider</option>
-        </select>
+        <form>
+            <select ng-options="provider for provider in providers track by provider" ng-model="provider">
+                <option value=''>Select a provider</option>
+            </select>
 
-        <!--<select ng-model="country">-->
-            <!--<option value='MDA'>MDA</option>-->
-        <!--</select>-->
+            <!--<select ng-model="country">-->
+                <!--<option value='MDA'>MDA</option>-->
+            <!--</select>-->
 
-        <!--<select ng-model="currency">-->
-            <!--<option value='MDL'>MDL</option>-->
-        <!--</select>-->
+            <!--<select ng-model="currency">-->
+                <!--<option value='MDL'>MDL</option>-->
+            <!--</select>-->
+        </form>
 
-        <table st-table="ratesLocal" st-safe-src="rates" class="table table-striped">
+        <table st-table="ratesLocal" st-safe-src="rates">
             <thead>
-            <tr>
-                <th st-sort="bank">Bank</th>
-                <th st-sort="currency">Currency</th>
-                <th st-sort="buy">Buy Rate</th>
-                <th st-sort="sell">Sell Rate</th>
-            </tr>
-            <tr>
-                <th>
-                    <input st-search="bank"/>
-                </th>
-                <th>
-                    <input st-search="currency"/>
-                </th>
-                <th>
-                    <input st-search="buy"/>
-                </th>
-                <th>
-                    <input st-search="sell"/>
-                </th>
-            </tr>
+                <tr>
+                    <th>Bank</th>
+                    <th>Currency</th>
+                    <th st-sort="buy" class="pointer">Buy Rate</th>
+                    <th st-sort="sell" class="pointer">Sell Rate</th>
+                </tr>
+                <tr>
+                    <th>
+                        <input st-search="bank"/>
+                    </th>
+                    <th>
+                        <input st-search="currency"/>
+                    </th>
+                    <th>
+                        <input st-search="buy"/>
+                    </th>
+                    <th>
+                        <input st-search="sell"/>
+                    </th>
+                </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="row in ratesLocal">
-                <td>{{row.bank}}</td>
-                <td>{{row.currency}}</td>
-                <td>{{row.buy}}</td>
-                <td>{{row.sell}}</td>
-            </tr>
+                <tr ng-repeat="row in ratesLocal">
+                    <td>{{row.bank}}</td>
+                    <td>{{row.currency}}</td>
+                    <td>{{row.buy}}</td>
+                    <td>{{row.sell}}</td>
+                </tr>
             </tbody>
         </table>
     </div>
