@@ -26,6 +26,8 @@ $application->register(new \JDesrosiers\Silex\Provider\CorsServiceProvider(), ar
     "cors.allowOrigin" => "*",
 ));
 
+$application->after($application["cors"]);
+
 /** @var \SERAPI\Controller\AbstractController[] $controllers */
 $controllers = [
     new \SERAPI\Controller\MainController()
@@ -36,5 +38,4 @@ foreach ($controllers as $controller) {
     $controller->register();
 }
 
-$application->after($application["cors"]);
 $application->run();
