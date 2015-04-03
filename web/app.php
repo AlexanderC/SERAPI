@@ -22,6 +22,10 @@ if (!isset($_SERVER['HTTP_CLIENT_IP'])
     $application['debug'] = true;
 }
 
+$application->register(new \JDesrosiers\Silex\Provider\CorsServiceProvider(), array(
+    "cors.allowOrigin" => "*",
+));
+
 /** @var \SERAPI\Controller\AbstractController[] $controllers */
 $controllers = [
     new \SERAPI\Controller\MainController()
@@ -32,4 +36,5 @@ foreach ($controllers as $controller) {
     $controller->register();
 }
 
+$application->after($application["cors"]);
 $application->run();

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9d84a3de49bf2aee86c84cc04a31c17b",
+    "hash": "2e74db80f0d68ae065ac3e695b96f5b8",
     "packages": [
         {
             "name": "alexanderc/exchange-rates",
@@ -112,6 +112,56 @@
                 "string"
             ],
             "time": "2014-12-20 21:24:13"
+        },
+        {
+            "name": "jdesrosiers/silex-cors-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jdesrosiers/silex-cors-provider.git",
+                "reference": "da78bd7d8ef14f8fda50fc7f0f7cf734380d028f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jdesrosiers/silex-cors-provider/zipball/da78bd7d8ef14f8fda50fc7f0f7cf734380d028f",
+                "reference": "da78bd7d8ef14f8fda50fc7f0f7cf734380d028f",
+                "shasum": ""
+            },
+            "require": {
+                "silex/silex": "2.0.*@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*",
+                "symfony/browser-kit": "2.3.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JDesrosiers\\Silex\\Provider\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jason Desrosiers",
+                    "email": "jdesrosi@gmail.com"
+                }
+            ],
+            "description": "A silex service provider that adds CORS services to silex",
+            "keywords": [
+                "cors",
+                "cross",
+                "origin",
+                "provider",
+                "resource",
+                "service",
+                "sharing",
+                "silex"
+            ],
+            "time": "2014-12-18 07:15:51"
         },
         {
             "name": "pimple/pimple",
@@ -610,7 +660,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "silex/silex": 20
+        "silex/silex": 20,
+        "jdesrosiers/silex-cors-provider": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

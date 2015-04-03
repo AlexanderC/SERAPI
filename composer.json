@@ -17,7 +17,8 @@
   "require": {
     "php": ">=5.5.2",
     "alexanderc/exchange-rates": "1.1.0",
-    "silex/silex": "2.0.*@dev"
+    "silex/silex": "2.0.*@dev",
+    "jdesrosiers/silex-cors-provider": "dev-master"
   },
   "suggest": {
 
