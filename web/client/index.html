@@ -55,7 +55,9 @@
                     <input st-search="bank"/>
                 </th>
                 <th class="th-small">
-                    <input class="th-small" st-search="currency"/>
+                    <select class="th-small" st-search="currency" ng-options="currency for currency in currencies track by currency" ng-model="desiredCurrency">
+                        <option value=''>Select a currency</option>
+                    </select>
                 </th>
                 <th class="th-small">
                     <input class="th-small" st-search="buy"/>

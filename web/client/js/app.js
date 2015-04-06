@@ -8,12 +8,15 @@ app.controller('IndexCtrl', ['$scope', 'Provider', 'Rate', function($scope, Prov
     $scope.providers = Provider.query();
     $scope.country = 'MDA';
     $scope.currency = 'MDL';
+    $scope.currencies = [];
+    $scope.desiredCurrency = null;
 
     $scope.$watch('provider', function(provider, oldProvider) {
         if(provider && provider != oldProvider) {
             Rate.get({providerName: provider}, function(rates) {
                 var ratesList = rates[$scope.country][$scope.currency];
                 var ratesFlatten = [];
+                var uniqueCurrencies = [];
 
                 for(var bank in ratesList) {
                     var localRatesList = ratesList[bank];
@@ -36,6 +39,10 @@ app.controller('IndexCtrl', ['$scope', 'Provider', 'Rate', function($scope, Prov
                     }
 
                     for(var currency in currencyList) {
+                        if(-1 == uniqueCurrencies.indexOf(currency)) {
+                            uniqueCurrencies.push(currency);
+                        }
+
                         ratesFlatten.push({
                             bank: bank,
                             currency: currency,
@@ -46,6 +53,7 @@ app.controller('IndexCtrl', ['$scope', 'Provider', 'Rate', function($scope, Prov
                 }
 
                 $scope.rates = ratesFlatten;
+                $scope.currencies = uniqueCurrencies;
             });
         }
     });
