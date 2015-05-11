@@ -4,20 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2e74db80f0d68ae065ac3e695b96f5b8",
+    "hash": "8cee11daa4eb9a081349c5c81f6283c2",
     "packages": [
         {
             "name": "alexanderc/exchange-rates",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/AlexanderC/ExchangeRates.git",
-                "reference": "1865052897112d23f7a0af357b20655de40dabb7"
+                "reference": "c98cf0312f7f054c95975667f4e8c16ed33c483c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/AlexanderC/ExchangeRates/zipball/1865052897112d23f7a0af357b20655de40dabb7",
-                "reference": "1865052897112d23f7a0af357b20655de40dabb7",
+                "url": "https://api.github.com/repos/AlexanderC/ExchangeRates/zipball/c98cf0312f7f054c95975667f4e8c16ed33c483c",
+                "reference": "c98cf0312f7f054c95975667f4e8c16ed33c483c",
                 "shasum": ""
             },
             "require": {
@@ -44,7 +44,7 @@
                 }
             ],
             "description": "Library that parses exchange rates of different countries using different providers",
-            "time": "2015-02-25 07:54:11"
+            "time": "2015-04-10 09:16:10"
         },
         {
             "name": "doctrine/inflector",
