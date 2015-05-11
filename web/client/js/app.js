@@ -11,50 +11,61 @@ app.controller('IndexCtrl', ['$scope', 'Provider', 'Rate', function($scope, Prov
     $scope.currencies = [];
     $scope.desiredCurrency = null;
 
-    $scope.$watch('provider', function(provider, oldProvider) {
-        if(provider && provider != oldProvider) {
-            Rate.get({providerName: provider}, function(rates) {
-                var ratesList = rates[$scope.country][$scope.currency];
-                var ratesFlatten = [];
-                var uniqueCurrencies = [];
+    $scope._refresh = function refresh(provider)
+    {
+        provider = provider || $scope.provider;
 
-                for(var bank in ratesList) {
-                    var localRatesList = ratesList[bank];
-                    var currencyList = {};
+        if (!provider) {
+            return;
+        }
 
-                    for(var currency in localRatesList['buy']) {
-                        if(!currencyList.hasOwnProperty(currency)) {
-                            currencyList[currency] = {};
-                        }
+        Rate.get({providerName: provider}, function(rates) {
+            var ratesList = rates[$scope.country][$scope.currency];
+            var ratesFlatten = [];
+            var uniqueCurrencies = [];
 
-                        currencyList[currency]['buy'] = localRatesList['buy'][currency];
+            for(var bank in ratesList) {
+                var localRatesList = ratesList[bank];
+                var currencyList = {};
+
+                for(var currency in localRatesList['buy']) {
+                    if(!currencyList.hasOwnProperty(currency)) {
+                        currencyList[currency] = {};
                     }
 
-                    for(var currency in localRatesList['sell']) {
-                        if(!currencyList.hasOwnProperty(currency)) {
-                            currencyList[currency] = {};
-                        }
-
-                        currencyList[currency]['sell'] = localRatesList['sell'][currency];
-                    }
-
-                    for(var currency in currencyList) {
-                        if(-1 == uniqueCurrencies.indexOf(currency)) {
-                            uniqueCurrencies.push(currency);
-                        }
-
-                        ratesFlatten.push({
-                            bank: bank,
-                            currency: currency,
-                            buy: currencyList[currency]['buy'],
-                            sell: currencyList[currency]['sell']
-                        });
-                    }
+                    currencyList[currency]['buy'] = localRatesList['buy'][currency];
                 }
 
-                $scope.rates = ratesFlatten;
-                $scope.currencies = uniqueCurrencies;
-            });
+                for(var currency in localRatesList['sell']) {
+                    if(!currencyList.hasOwnProperty(currency)) {
+                        currencyList[currency] = {};
+                    }
+
+                    currencyList[currency]['sell'] = localRatesList['sell'][currency];
+                }
+
+                for(var currency in currencyList) {
+                    if(-1 == uniqueCurrencies.indexOf(currency)) {
+                        uniqueCurrencies.push(currency);
+                    }
+
+                    ratesFlatten.push({
+                        bank: bank,
+                        currency: currency,
+                        buy: currencyList[currency]['buy'],
+                        sell: currencyList[currency]['sell']
+                    });
+                }
+            }
+
+            $scope.rates = ratesFlatten;
+            $scope.currencies = uniqueCurrencies;
+        });
+    };
+
+    $scope.$watch('provider', function(provider, oldProvider) {
+        if(provider && provider != oldProvider) {
+            $scope._refresh(provider);
         }
     });
 }]);
