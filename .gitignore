@@ -43,6 +43,7 @@ Try running `joe ls` to see list of available gitignore files.
 
 # Composer PHAR
 /composer.phar
+/composer.lock
 
 #####=== OSX ===#####
 .DS_Store
